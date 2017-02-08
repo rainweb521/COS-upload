@@ -13,6 +13,8 @@ from qcloud_cos import ListFolderRequest
 
 import logging
 import sys
+import os
+import shutil
 logging.basicConfig(level=logging.DEBUG, stream=sys.stdout)
 logger = logging.getLogger(__name__)
 def cos_demo(mkdir,file_path):
@@ -26,12 +28,21 @@ def cos_demo(mkdir,file_path):
     upload_file_ret = cos_client.upload_file(request)
     print logger.info("upload file, return message: " + str(upload_file_ret))
 if __name__ == '__main__':
-    print "************welcome Rain file uploading************"
-    mkdir = raw_input('This-------->>>mkdir:');
+    print "************welcome Rain file uploading RainCloud2.0************"
+    mkdir = raw_input('This-------->>>mkdir:')
     while 1:
         file_path = raw_input('This------>>>File:')
         file_path = file_path.split('\\')
-        cos_demo(mkdir,file_path[-1])
-        result = raw_input('Continue------>>>y/n:')
-        if result!='y':
-            break
+        path = ""
+        for l in range(0, len(file_path)):
+            path = path + str(file_path[l])
+            if l < len(file_path) - 1:
+                path = path + "/"
+        print path
+        shutil.copyfile(path, file_path[-1])
+        cos_demo(mkdir, file_path[-1])
+        # shutil.copyfile(path, '1.png')
+        os.remove(file_path[-1])
+        # result = raw_input('Continue------>>>y/n:')
+        # if result!='y':
+        #     break
