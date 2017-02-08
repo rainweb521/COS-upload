@@ -21,4 +21,5 @@
 ### 这是我发布的NR-TCloud1.1版，后续会根据需求继续更新
 
 * 如图  
-  ![www.rainweb.site](http://blog-1252406596.costj.myqcloud.com/photo/python.png "www.rainweb.site")
+  ![www.rainweb.site](http://blog-1252406596.costj.myqcloud.com/blog/nr2.jpg "www.rainweb.site")
+
